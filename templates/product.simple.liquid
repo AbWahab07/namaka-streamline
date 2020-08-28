@@ -1,0 +1,21 @@
+{% section 'product-template' %}
+{% section 'product-recommendations' %}
+
+{%- if collection -%}
+  <div class="text-center">
+    <a href="{{ collection.url }}" class="btn btn--tertiary">
+      &xlarr; {{ 'products.general.collection_return' | t: collection: collection.title }}
+    </a>
+  </div>
+{%- endif -%}
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  };
+</script>
